@@ -149,7 +149,10 @@ def handle(operate):
 
 if __name__ == '__main__':
     operate_list = ['cut', 'merge']
-    operate = args[1];
+    if len(args) <= 1:
+        print("请提供参数,支持参数[cut|merge]")
+        sys.exit()
+    operate = args[1]
     if len(operate) == 0:
         print("请提供参数,支持参数[cut|merge]")
     elif operate not in operate_list:
