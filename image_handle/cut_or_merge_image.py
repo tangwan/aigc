@@ -102,7 +102,7 @@ def get_subdirectories(directory):
 
 def handle(operate):
     while 1:
-        directory_path = input(f"输入图片完整路径[/opt/images|C:\games\images]:").lstrip().rstrip()
+        directory_path = input(f"输入图片完整路径,切图操作执行此目录下图片,合图操作执行此目录下子目录图片合并[/opt/images|C:\games\images]:").lstrip().rstrip()
         if len(directory_path) == 0:
             print('图片完整路径未输入,程序终止!!!')
             break
@@ -110,16 +110,16 @@ def handle(operate):
         if len(extension) == 0:
             print('图片格式未输入,默认.png格式')
             extension = '.png'
-        rows = input(f"请输入行数[>0整数]:").lstrip().rstrip()
+        rows = input(f"请输入目标行数[>0整数]:").lstrip().rstrip()
         if len(rows) == 0 and int(rows) > 0:
             print('行数未输入,程序终止!!!')
             break
-        cols = input(f"请输入列数[>0整数]:").lstrip().rstrip()
+        cols = input(f"请输入目标列数[>0整数]:").lstrip().rstrip()
         if len(cols) == 0 and int(cols) > 0:
             print('列数未输入,程序终止!!!')
             break
         if 'cut' == operate:
-            print("开始执行切图操作,请按提示输入参数...")
+            print("开始执行切图操作...")
             images = get_sorted_files(directory_path, extension)
             for image in images:
                 file_name = os.path.basename(image)
@@ -132,7 +132,7 @@ def handle(operate):
                 for i, img in enumerate(imgs):
                     img.save(f'{directory_path}/{file_base_name}/{file_base_name}__{i}.png')
         elif 'merge' == operate:
-            print("开始执行合图操作,请按提示输入参数")
+            print("开始执行合图操作...")
             # 获取所有子目录
             subdirectories = get_subdirectories(directory_path)
             for subdir in subdirectories:
