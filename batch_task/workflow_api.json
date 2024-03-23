@@ -1,0 +1,26 @@
+{
+  "1": {
+    "inputs": {
+      "directory": "D:\\images",
+      "image_load_cap": 0,
+      "start_index": 0,
+      "load_always": false
+    },
+    "class_type": "LoadImageListFromDir //Inspire",
+    "_meta": {
+      "title": "加载图像列表(路径)"
+    }
+  },
+  "2": {
+    "inputs": {
+      "images": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "预览图像"
+    }
+  }
+}
