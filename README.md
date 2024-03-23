@@ -27,3 +27,15 @@ python cut_or_merge_image.py merge
 2. 默认图片格式`.png`
 3. 输入目标合图行数,也就是这几张小图要合成几行,例如: 9张小图,合成`3x3`的大图,目标行=3
 4. 输入目标合图行数,也就是这几张小图要合成几列,例如: 9张小图,合成`3x3`的大图,目标列=3
+
+## 加载图像列表任务分批处理
+
+```shell
+python batch.py
+```
+
+需要修改config.ini中配置的参数
+
+1. `workflow_api_json` 工作流json api,需要ComfyUI在设置中开启开发者模式,然后工作流`保存(API格式)`
+2. `batch_size` 每批图片数量
+3. `sleep_time` 每批图片执行完工作流后,电脑休息多长时间(单位:秒)
