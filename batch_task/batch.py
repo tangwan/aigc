@@ -95,8 +95,9 @@ def handle():
             while True:
                 time.sleep(5)
                 task_status_resp = requests.get(comfyui_get_url + "/" + prompt_id)
-                logger.info(f'请求comfyui api 获取任务状态 resp: %s', task_status_resp.text)
-                prompt_result = json.loads(task_status_resp.text)[prompt_id]
+                logger.info(f'请求comfyui api 获取任务状态 resp: %s',json.dumps(task_status_resp.json(), ensure_ascii=False))
+                # prompt_result = json.loads(task_status_resp.text)[prompt_id]
+                prompt_result = json.loads(json.dumps(task_status_resp.json(), ensure_ascii=False))[prompt_id]
                 if prompt_result is None:
                     continue
                 task_status = prompt_result['status']
