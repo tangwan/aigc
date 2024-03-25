@@ -26,8 +26,11 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 sections = config.sections()
 
-comfyui_post_url = 'http://192.168.23.52:8188/prompt'
-comfyui_get_url = 'http://192.168.23.52:8188/history'
+# comfyui_post_url = 'http://192.168.23.52:8188/prompt'
+# comfyui_get_url = 'http://192.168.23.52:8188/history'
+
+comfyui_post_url = 'http://127.0.0.1:8188/prompt'
+comfyui_get_url = 'http://127.0.0.1:8188/history'
 
 headers = {
     'Content-Type': 'application/json'
